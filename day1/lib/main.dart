@@ -52,7 +52,7 @@ class DayOneScreen extends StatelessWidget {
                         ),
                         child: ClipOval(
                           child: Image.network(
-                            'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80',
+                            'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80',
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) =>
                                 const Icon(
@@ -67,9 +67,8 @@ class DayOneScreen extends StatelessWidget {
                       const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 2),
                           Text(
-                            "Hello Sophia",
+                            "Hello, Sophia",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w700,
