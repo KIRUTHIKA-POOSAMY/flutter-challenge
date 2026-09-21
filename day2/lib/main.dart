@@ -63,13 +63,26 @@ class DayTwoScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 14),
-                      const Text(
-                        "Hello, Sophia",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF1E222B),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: ' Hello, ',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Sophia',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
