@@ -26,14 +26,10 @@ class DayTwoScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24,
-              vertical: 16,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 // ---------------- HEADER ----------------
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,10 +42,7 @@ class DayTwoScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: const Color(0xFFFFDDD2),
-                            border: Border.all(
-                              color: Colors.white,
-                              width: 2.5,
-                            ),
+                            border: Border.all(color: Colors.white, width: 2.5),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.08),
@@ -62,8 +55,7 @@ class DayTwoScreen extends StatelessWidget {
                             child: Image.asset(
                               'assets/profile.jpg',
                               fit: BoxFit.cover,
-                              errorBuilder:
-                                  (context, error, stackTrace) {
+                              errorBuilder: (context, error, stackTrace) {
                                 return const Icon(
                                   Icons.person,
                                   size: 30,
@@ -173,7 +165,6 @@ class DayTwoScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     dateColumn("SUN", "1"),
                     dateColumn("MON", "2"),
                     dateColumn("TUE", "3"),
@@ -219,7 +210,6 @@ class DayTwoScreen extends StatelessWidget {
                 // ---------------- TIME + EXERCISES ----------------
                 Row(
                   children: [
-
                     // TIME CARD
                     Expanded(
                       child: Container(
@@ -230,12 +220,10 @@ class DayTwoScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(28),
                         ),
                         child: Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
                                 Text(
                                   "Time",
@@ -288,12 +276,10 @@ class DayTwoScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(28),
                         ),
                         child: Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
                                 Text(
                                   "Exercises",
@@ -341,28 +327,18 @@ class DayTwoScreen extends StatelessWidget {
                 // ---------------- WEEKLY POINTS ----------------
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.fromLTRB(
-                    20,
-                    20,
-                    20,
-                    16,
-                  ),
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 16),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(28),
-                    border: Border.all(
-                      color: Colors.black12,
-                    ),
+                    border: Border.all(color: Colors.black12),
                   ),
                   child: Column(
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       // TITLE
                       Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text(
                             "Weekly points",
@@ -371,10 +347,7 @@ class DayTwoScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          Icon(
-                            Icons.more_horiz,
-                            size: 22,
-                          ),
+                          Icon(Icons.more_horiz, size: 22),
                         ],
                       ),
 
@@ -383,7 +356,6 @@ class DayTwoScreen extends StatelessWidget {
                       // SCORE
                       Row(
                         children: [
-
                           // 64% CIRCLE
                           SizedBox(
                             width: 78,
@@ -394,17 +366,14 @@ class DayTwoScreen extends StatelessWidget {
                                 SizedBox(
                                   width: 72,
                                   height: 72,
-                                  child:
-                                      CircularProgressIndicator(
+                                  child: CircularProgressIndicator(
                                     value: 0.64,
                                     strokeWidth: 8,
-                                    backgroundColor:
-                                        const Color(0xFFE9ECEF),
+                                    backgroundColor: const Color(0xFFE9ECEF),
                                     valueColor:
-                                        const AlwaysStoppedAnimation<
-                                            Color>(
-                                      Color(0xFF8BC34A),
-                                    ),
+                                        const AlwaysStoppedAnimation<Color>(
+                                          Color(0xFF8BC34A),
+                                        ),
                                   ),
                                 ),
 
@@ -440,8 +409,7 @@ class DayTwoScreen extends StatelessWidget {
                             ),
                             decoration: BoxDecoration(
                               color: const Color(0xFFF5F5F5),
-                              borderRadius:
-                                  BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(12),
                             ),
                             child: const Row(
                               mainAxisSize: MainAxisSize.min,
@@ -470,44 +438,20 @@ class DayTwoScreen extends StatelessWidget {
                       SizedBox(
                         height: 80,
                         width: double.infinity,
-                        child: CustomPaint(
-                          painter: WeeklyGraphPainter(),
-                        ),
+                        child: CustomPaint(painter: WeeklyGraphPainter()),
                       ),
 
                       // DAYS
                       const Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text(
-                            "S",
-                            style: TextStyle(fontSize: 11),
-                          ),
-                          Text(
-                            "M",
-                            style: TextStyle(fontSize: 11),
-                          ),
-                          Text(
-                            "T",
-                            style: TextStyle(fontSize: 11),
-                          ),
-                          Text(
-                            "W",
-                            style: TextStyle(fontSize: 11),
-                          ),
-                          Text(
-                            "T",
-                            style: TextStyle(fontSize: 11),
-                          ),
-                          Text(
-                            "F",
-                            style: TextStyle(fontSize: 11),
-                          ),
-                          Text(
-                            "S",
-                            style: TextStyle(fontSize: 11),
-                          ),
+                          Text("S", style: TextStyle(fontSize: 11)),
+                          Text("M", style: TextStyle(fontSize: 11)),
+                          Text("T", style: TextStyle(fontSize: 11)),
+                          Text("W", style: TextStyle(fontSize: 11)),
+                          Text("T", style: TextStyle(fontSize: 11)),
+                          Text("F", style: TextStyle(fontSize: 11)),
+                          Text("S", style: TextStyle(fontSize: 11)),
                         ],
                       ),
                     ],
@@ -530,20 +474,14 @@ class DayTwoScreen extends StatelessWidget {
         children: [
           Text(
             day,
-            style: const TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w500,
-            ),
+            style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
           ),
 
           const SizedBox(height: 15),
 
           Text(
             date,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
         ],
       ),
@@ -564,40 +502,15 @@ class WeeklyGraphPainter extends CustomPainter {
 
     path.moveTo(0, 48);
 
-    path.quadraticBezierTo(
-      size.width * 0.08,
-      30,
-      size.width * 0.17,
-      45,
-    );
+    path.quadraticBezierTo(size.width * 0.08, 30, size.width * 0.17, 45);
 
-    path.quadraticBezierTo(
-      size.width * 0.27,
-      65,
-      size.width * 0.38,
-      38,
-    );
+    path.quadraticBezierTo(size.width * 0.27, 65, size.width * 0.38, 38);
 
-    path.quadraticBezierTo(
-      size.width * 0.48,
-      25,
-      size.width * 0.58,
-      48,
-    );
+    path.quadraticBezierTo(size.width * 0.48, 25, size.width * 0.58, 48);
 
-    path.quadraticBezierTo(
-      size.width * 0.67,
-      70,
-      size.width * 0.78,
-      12,
-    );
+    path.quadraticBezierTo(size.width * 0.67, 70, size.width * 0.78, 12);
 
-    path.quadraticBezierTo(
-      size.width * 0.88,
-      0,
-      size.width,
-      22,
-    );
+    path.quadraticBezierTo(size.width * 0.88, 0, size.width, 22);
 
     canvas.drawPath(path, paint);
   }

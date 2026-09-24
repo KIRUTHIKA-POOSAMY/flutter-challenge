@@ -455,22 +455,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 62,
-                  height: 62,
+                  width: 72,
+                  height: 72,
                   child: CustomPaint(
-                    painter: AntiClockwiseGaugePainter(
+                    painter: LayeredGaugePainter(
                       progress: 0.64,
-                      strokeWidth: 6,
                       trackColor: AppColors.gaugeTrack,
                       progressColor: AppColors.gaugeGreen,
                     ),
-                    child: const Center(
-                      child: Text(
-                        '64%',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.textDark,
+                    child: Center(
+                      child: Container(
+                        width: 38,
+                        height: 38,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          '64%',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.textDark,
+                          ),
                         ),
                       ),
                     ),
@@ -1304,4 +1312,64 @@ class ExactConcentricDialPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant ExactConcentricDialPainter oldDelegate) => false;
+}
+
+class LayeredGaugePainter extends CustomPainter {
+  final double progress;
+  final Color trackColor;
+  final Color progressColor;
+
+  LayeredGaugePainter({
+    required this.progress,
+    required this.trackColor,
+    required this.progressColor,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width / 2, size.height / 2);
+
+    // Outer grey circle
+    final trackPaint = Paint()
+      ..color = trackColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 7
+      ..strokeCap = StrokeCap.round;
+
+    final radius = (size.width - 7) / 2;
+
+    canvas.drawCircle(center, radius, trackPaint);
+
+    // Green 64% progress
+    final progressPaint = Paint()
+      ..color = progressColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 7
+      ..strokeCap = StrokeCap.round;
+
+    const startAngle = -math.pi / 2;
+    final sweepAngle = 2 * math.pi * progress;
+
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      startAngle,
+      sweepAngle,
+      false,
+      progressPaint,
+    );
+
+    // Inner white circle
+    final innerWhitePaint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
+
+    canvas.drawCircle(center, 25, innerWhitePaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant LayeredGaugePainter oldDelegate) {
+    return oldDelegate.progress != progress ||
+        oldDelegate.trackColor != trackColor ||
+        oldDelegate.progressColor != progressColor;
+  }
 }
