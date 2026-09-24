@@ -13,8 +13,8 @@ class AppColors {
 
   // Reddish-pink accents
   static const reddishPink = Color(0xFFF68378);
-  static const reddishPinkLight = Color(0xFFFCDCD7);
-  static const reddishPinkPillBg = Color(0xFFFDE8E4);
+  static const reddishPinkLight = Color(0xFFFDE8E4);
+  static const reddishPinkPillBg = Color(0xFFF68378);
 
   // Cards
   static const blueCard = Color(0xFFD4EEF9);
